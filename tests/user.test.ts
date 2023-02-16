@@ -1,4 +1,3 @@
-import { Response } from "express";
 import supertest from "supertest";
 import app from "../src/index.js";
 import { prisma } from "../src/config/database.js";
@@ -8,6 +7,10 @@ const agent = supertest(app);
 
 beforeEach(async () => {
   await prisma.$executeRaw`TRUNCATE TABLE "users" CASCADE;`;
+});
+
+afterAll(async () => {
+  await prisma.$disconnect();
 });
 
 describe("POST /create", () => {
