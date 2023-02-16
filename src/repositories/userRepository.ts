@@ -28,6 +28,9 @@ export function findUserByCpf(cpf: string) {
   });
 }
 
-export function getAllUsers() {
-  return prisma.users.findMany();
+export function getAllUsers(page: string, take: string) {
+  return prisma.users.findMany({
+    take: +take || 10,
+    skip: +take * (+page - 1),
+  });
 }

@@ -5,10 +5,11 @@ export type UserCreateData = Omit<User, "id">;
 import verifyCpfAlreadyInUse from "../utils/verifyCpfAlreadyInUse.js";
 import formatCpf from "../utils/formatCpf.js";
 import validateCpf from "../utils/validateCpf.js";
+import formatDate from "../utils/formateDate.js";
 
 export async function createUser(user: UserCreateData) {
   if (!validateCpf(user.cpf)) {
-    throw new AppError("Invalid CPF", 422, "CPF inválido");
+    throw new AppError("Invalid CPF", 422);
   }
 
   const date = user.birthDate.toString().split("/");
@@ -23,6 +24,8 @@ export async function createUser(user: UserCreateData) {
 }
 
 export async function getUserByCpf(cpf: string) {
+  cpf = formatCpf(cpf);
+
   const user = await userRepository.findUserByCpf(cpf);
 
   if (!user) {
@@ -32,6 +35,14 @@ export async function getUserByCpf(cpf: string) {
   return user;
 }
 
-export async function getAllUsers() {
-  return await userRepository.getAllUsers();
+export async function getAllUsers(
+  page: string | undefined = "1",
+  take: string | undefined = "10"
+) {
+  const users = await userRepository.getAllUsers(page, take);
+
+  return {
+    page: +page,
+    users,
+  };
 }

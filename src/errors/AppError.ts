@@ -7,7 +7,5 @@ export class AppError {
     this.message = message;
     this.statusCode = statusCode;
     this.data = data;
-
-    console.log(this);
   }
 }

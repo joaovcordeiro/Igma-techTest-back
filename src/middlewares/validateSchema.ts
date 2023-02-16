@@ -1,13 +1,13 @@
+import { AppError } from "./../errors/AppError.js";
 import { ObjectSchema } from "joi";
 import { NextFunction, Request, Response } from "express";
+import ResponseModel from "../config/ReponseModel.js";
 
 export function validateSchemaMiddleware(schema: ObjectSchema) {
   return (req: Request, res: Response, next: NextFunction) => {
     const validation = schema.validate(req.body);
     if (validation.error) {
-      return res
-        .status(422)
-        .send(validation.error.details.map((i) => i.message));
+      throw new AppError(validation.error.message, 422);
     }
 
     next();

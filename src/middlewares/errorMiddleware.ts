@@ -8,13 +8,12 @@ export default function errorHandlingMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  console.log(error);
-
   if (error instanceof AppError) {
     return res
       .status(error.statusCode)
       .json(new ResponseModel(error.message, error.statusCode, error.data));
   }
-
   res.status(500).json(new ResponseModel("Internal server error", 500));
+
+  next();
 }

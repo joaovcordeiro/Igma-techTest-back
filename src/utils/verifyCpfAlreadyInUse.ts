@@ -5,7 +5,7 @@ export default async function verifyCpfAlreadyInUse(cpf: string) {
   const user = await userRepository.findUserByCpf(cpf);
 
   if (user) {
-    throw new AppError("CPF already in use", 400);
+    throw new AppError("CPF already in use", 409);
   }
 
   return;
