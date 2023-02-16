@@ -1,4 +1,4 @@
-function verifyCpf(cpf: string) {
+export default function validateCpf(cpf: string) {
   let sum = 0;
   let rest: number;
 
@@ -41,5 +41,3 @@ function verifyCpf(cpf: string) {
 
   return true;
 }
-
-console.log(verifyCpf("22222222222"));

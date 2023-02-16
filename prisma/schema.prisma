@@ -11,9 +11,11 @@ datasource db {
 }
 
 // Modelo para a tabela de usuários
-model User {
+model Users {
   id Int @default(autoincrement()) @id
   name String
   cpf String @unique
-  birthDate DateTime
+  birthDate DateTime @db.Date
+
+  @@map("users")
 }

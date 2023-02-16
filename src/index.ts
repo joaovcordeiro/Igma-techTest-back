@@ -1,13 +1,13 @@
-import { PrismaClient } from "@prisma/client";
-import express from "express";
+import express, { json } from "express";
+import "express-async-errors";
+import dotenv from "dotenv";
 
-const prisma = new PrismaClient();
+import router from "./routes/index.js";
+
+dotenv.config();
+
 const app = express();
+app.use(json());
+app.use(router);
 
-app.use(express.json());
-
-// ... your REST API routes will go here
-
-app.listen(3000, () =>
-  console.log("REST API server ready at: http://localhost:3000")
-);
+export default app;

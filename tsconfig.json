@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    "esModuleInterop": true,
+    "module": "es6",
+    "moduleResolution": "node",
     "outDir": "dist",
+    "sourceMap": true,
     "strict": true,
     "lib": ["esnext"],
-    "esModuleInterop": true
+    "useUnknownInCatchVariables": false
+  },
+  "ts-node": {
+    "esm": true
   }
 }
