@@ -24,6 +24,9 @@ export async function createUser(user: UserCreateData) {
 }
 
 export async function getUserByCpf(cpf: string) {
+  if (!validateCpf(cpf)) {
+    throw new AppError("Invalid CPF", 422);
+  }
   cpf = formatCpf(cpf);
 
   const user = await userRepository.findUserByCpf(cpf);
@@ -39,6 +42,10 @@ export async function getAllUsers(
   page: string | undefined = "1",
   take: string | undefined = "10"
 ) {
+  if (+page <= 0 || +take <= 0) {
+    throw new AppError("Invalid page or take", 422);
+  }
+
   const users = await userRepository.getAllUsers(page, take);
 
   return {
