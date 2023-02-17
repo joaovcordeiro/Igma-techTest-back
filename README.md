@@ -34,7 +34,7 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
 
 ```bash
   # Clone este repositório
-  $ git clone <https://github.com/joaovcordeiro/Igma-techTest-back.git>
+  $ git clone https://github.com/joaovcordeiro/Igma-techTest-back.git
   
   # Acesse o terminar na raiz do diretorio
   
