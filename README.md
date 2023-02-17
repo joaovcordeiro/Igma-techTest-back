@@ -2,8 +2,10 @@
 <p align="center">Projeto desenvolvido para teste tecnico na Igma digital product company</p>
 
 <!--ts-->
-   * [Pré-requisitos](#Pré-requisitos)
+   * [Pré-requisitos](#pré-requisitos)
    * [Como usar](#como-usar)
+   * [Documentação](#documentação)
+   * [Testes de integração](#testes-de-integração)
    * [Tecnologias](#tecnologias)
 <!--te-->
 
@@ -46,18 +48,36 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
   $ npm run dev
 ```
 
-### 🎲 Documentação
+## Documentação
 
+   A documentação deste projeto foi feita utilizando [Swagger](https://swagger.io)
+  
+  Para acessa-lá entre no navegador e digite a url localhost:5000/docs, verá esta tela:
+  
+  <h1 align="center">
+  <img alt="Swagger" title="#Swagger" src="/assets/swagger.png" />
+  </h1>
+  
+  Nesta tela é possivel testar os endpoints e funcionalidades sem a necessidade de outros softwares.
+  
+## Testes de integração
+  Para rodar os testes da aplicação:
+  
+```bash
+  # Em um terminal na raiz do projeto, execute o comando
+  $ npm run test
+  
+```
 
-  # A documentação deste projeto foi feita utilizando [Swagger](https://swagger.io)
+## Tecnologias
+<div  align="center" style="display: inline_block"><br>
+  <img align="center" alt="Joao-Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+  <img align="center" alt="Joao-Node" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" />
+  <img align="center" alt="Joao-Jest" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg">
+  <img align="center" alt="Joao-Postgres" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+  <img align="center" alt="Joao-Git" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+  <img align="center" alt="Joao-Docker" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" />
+  <img align="center" alt="Joao-Docker" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/186711335-a3729606-5a78-4496-9a36-06efcc74f800.png" />
+ 
   
-  Para acessa-lá entre no navegador e digite a url localhost:5000/docs
-  
-  # Instale as dependências
-  $ npm install
-  
-  # Excute o seguinte comando para subir o banco de dados
-  $ docker-compose up --build
-  
-  # Após isso execute o comando para subir o servidor em modo de desenvolvimento na porta 5000
-  $ npm run dev
+</div>
