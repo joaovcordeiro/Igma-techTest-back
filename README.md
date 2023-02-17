@@ -70,14 +70,18 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
 ```
 
 ## Tecnologias
-<div  align="center" style="display: inline_block"><br>
-  <img align="center" alt="Joao-Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
-  <img align="center" alt="Joao-Node" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" />
-  <img align="center" alt="Joao-Jest" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg">
-  <img align="center" alt="Joao-Postgres" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-  <img align="center" alt="Joao-Git" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
-  <img align="center" alt="Joao-Docker" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" />
-  <img align="center" alt="Joao-Docker" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/186711335-a3729606-5a78-4496-9a36-06efcc74f800.png" />
+<div  align="center" style="display: flex-start"><br>
+  <div>Typescript <img align="center" alt="Joao-Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg"></div>
+   <div>NodeJs <img align="center" alt="Joao-Node" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/183568594-85e280a7-0d7e-4d1a-9028-c8c2209e073c.png" /></div>
+   <div>Jest <img align="center" alt="Joao-Jest" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg"></div>
+   <div>Postgresql  <img align="center" alt="Joao-Postgres" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" /></div>
+<div>Swagger  <img align="center" alt="Joao-Docker" height="30" width="40" src="https://user-images.githubusercontent.com/25181517/186711335-a3729606-5a78-4496-9a36-06efcc74f800.png" /></div>
+  <div>Docker   <img align="center" alt="Joao-Docker" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" />
+</div>
+  
+  
+  
+ 
  
   
 </div>
