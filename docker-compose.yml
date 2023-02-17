@@ -3,13 +3,24 @@ services:
   postgres:
     image: postgres:13
     container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     restart: always
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    env_file:
-      - .env
+
+  # node_app:
+  #   container_name: node_app
+  #   build: .
+  #   ports:
+  #     - 5000:5000
+  #   depends_on:
+  #     - postgres
+  #   env_file:
+  #     - .env
 
 volumes:
   postgres:
