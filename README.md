@@ -52,7 +52,7 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
 
    A documentação deste projeto foi feita utilizando [Swagger](https://swagger.io)
   
-  Para acessa-lá entre no navegador e digite a url localhost:5000/docs, verá esta tela:
+  Para acessa-lá entre no navegador e digite a url localhost:5000/docs com o servidor rodando, verá esta tela:
   
   <h1 align="center">
   <img alt="Swagger" title="#Swagger" src="/assets/swagger.png" />
