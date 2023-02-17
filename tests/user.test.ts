@@ -13,11 +13,11 @@ afterAll(async () => {
   await prisma.$disconnect();
 });
 
-describe("POST /create", () => {
+describe("POST /user", () => {
   it("should create a new user", async () => {
     const body = await userFactory.createUser(true, true, true);
 
-    const response = await agent.post("/create").send(body);
+    const response = await agent.post("/user").send(body);
     const status = response.status;
 
     const userCreated = await userFactory.verifyUser(body);
@@ -28,8 +28,8 @@ describe("POST /create", () => {
 
   it("should return a error because the cpf already exists", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
-    const result = await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
+    const result = await agent.post("/user").send(body);
     const status = result.status;
     const userCreated = await userFactory.verifyUser(body);
 
@@ -39,7 +39,7 @@ describe("POST /create", () => {
 
   it("should return a error because the cpf is invalid", async () => {
     const body = await userFactory.createUser(false, true, true);
-    const result = await agent.post("/create").send(body);
+    const result = await agent.post("/user").send(body);
     const status = result.status;
     const userCreated = await userFactory.verifyUser(body);
 
@@ -49,7 +49,7 @@ describe("POST /create", () => {
 
   it("should return a error because the birthDate is invalid", async () => {
     const body = await userFactory.createUser(true, false, true);
-    const result = await agent.post("/create").send(body);
+    const result = await agent.post("/user").send(body);
     const status = result.status;
     const userCreated = await userFactory.verifyUser(body);
 
@@ -59,7 +59,7 @@ describe("POST /create", () => {
 
   it("should return a error because the name is invalid", async () => {
     const body = await userFactory.createUser(true, true, false);
-    const result = await agent.post("/create").send(body);
+    const result = await agent.post("/user").send(body);
     const status = result.status;
     const userCreated = await userFactory.verifyUser(body);
 
@@ -71,7 +71,7 @@ describe("POST /create", () => {
 describe("GET /users/:page?/:take?", () => {
   it("should return a list of users", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get("/users");
     const status = response.status;
 
@@ -81,7 +81,7 @@ describe("GET /users/:page?/:take?", () => {
 
   it("should return a list of users with pagination", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get("/users/1/1");
     const status = response.status;
 
@@ -91,7 +91,7 @@ describe("GET /users/:page?/:take?", () => {
 
   it("should return a error because the page is invalid", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get("/users/0/1");
     const status = response.status;
 
@@ -101,7 +101,7 @@ describe("GET /users/:page?/:take?", () => {
 
   it("should return a error because the take is invalid", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get("/users/1/0");
     const status = response.status;
 
@@ -111,7 +111,7 @@ describe("GET /users/:page?/:take?", () => {
 
   it("should return a error because the page and take are invalid", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get("/users/0/0");
     const status = response.status;
 
@@ -123,7 +123,7 @@ describe("GET /users/:page?/:take?", () => {
 describe("GET /user/:cpf", () => {
   it("should return a user", async () => {
     const body = await userFactory.createUser(true, true, true);
-    await agent.post("/create").send(body);
+    await agent.post("/user").send(body);
     const response = await agent.get(`/user/${body.cpf}`);
     const status = response.status;
 

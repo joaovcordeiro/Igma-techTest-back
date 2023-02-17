@@ -6,7 +6,7 @@ import { userSchema } from "../schemas/userSchema.js";
 const userRouter = Router();
 
 userRouter.post(
-  "/create",
+  "/user",
   validateSchemaMiddleware(userSchema),
   userController.createUser
 );

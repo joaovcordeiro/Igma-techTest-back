@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
     "lib": ["esnext"],
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "resolveJsonModule": true
   },
   "ts-node": {
     "esm": true

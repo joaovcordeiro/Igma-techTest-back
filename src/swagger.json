@@ -1,0 +1,210 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API for technical testing in Igma digital product company.",
+    "description": "API for user management.",
+    "version": "1.0.0",
+    "contact": { "name": "João Araujo", "email": "jjvictorac@gmail.com" },
+    "license": {
+      "name": "License: GPLv3",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+  },
+  "servers": [
+    { "url": "http://localhost:5000", "description": "API Tech Test" }
+  ],
+  "paths": {
+    "/users/{page}/{take}": {
+      "get": {
+        "summary": "Picks up all registered users.",
+        "description": "Through this endpoint it is possible to search for all users, the page parameter defines which page will be returned and the take stopmeter defines how many users will be returned per page (the default is 10), none of the parameters is mandatory (except in this swagger documentation), however they have at least the value 1 if used.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "schema": { "type": "string" },
+            "required": true
+          },
+          {
+            "name": "take",
+            "in": "path",
+            "schema": { "type": "string" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "statusCode": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "page": { "type": "integer" },
+                        "users": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "cpf": {
+                                "type": "string"
+                              },
+                              "birthDate": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid page or take",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Fail" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{cpf}": {
+      "get": {
+        "summary": "Retrieves a use by cpf",
+        "description": "Through this endpoint and using a valid cpf it is possible to perform the search for a user",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "schema": { "type": "string" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Sucess" }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Fail" }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid Cpf",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Fail" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "summary": "Creates a new user",
+        "description": "Through this endpoint and using a valid cpf it is possible to enter a new user",
+        "requestBody": {
+          "description": "The sending format must be composed of a name (which cannot be an empty string), must also be composed of a cpf (which must be a valid cpf and can be in format 0000000000 or 000.000.000-00) and finally a birthDate (which must be a string in DD/MM/YYYY format).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "cpf": { "type": "string" },
+                  "birthDate": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Sucess" }
+              }
+            }
+          },
+          "409": {
+            "description": "Cpf already in use",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Fail" }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid Cpf, BirthDate or Empty name",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Fail" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Sucess": {
+        "type": "object",
+        "title": "Sucess",
+        "description": "When the request returns correctly",
+        "properties": {
+          "status": { "type": "string" },
+          "statusCode": { "type": "integer" },
+          "message": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "cpf": { "type": "string" },
+              "birthDate": { "type": "string" }
+            }
+          }
+        }
+      },
+      "Fail": {
+        "type": "object",
+        "title": "Fail",
+        "description": "When the request returns with error",
+        "properties": {
+          "status": { "type": "string" },
+          "statusCode": { "type": "string" },
+          "message": { "type": "string" },
+          "data": { "type": "object" }
+        }
+      }
+    }
+  }
+}

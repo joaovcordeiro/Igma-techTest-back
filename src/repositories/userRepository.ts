@@ -30,7 +30,7 @@ export function findUserByCpf(cpf: string) {
 
 export function getAllUsers(page: string, take: string) {
   return prisma.users.findMany({
-    take: +take || 10,
+    take: +take,
     skip: +take * (+page - 1),
   });
 }
