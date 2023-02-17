@@ -42,7 +42,7 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
   $ npm install
   
   # Excute o seguinte comando para subir o banco de dados
-  $ docker-compose up --build
+  $ docker-compose up -d --build
   
   # Após isso execute o comando para subir o servidor em modo de desenvolvimento na porta 5000
   $ npm run dev
