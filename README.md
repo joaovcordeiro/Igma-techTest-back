@@ -61,7 +61,7 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
   Nesta tela é possivel testar os endpoints e funcionalidades sem a necessidade de outros softwares.
   
 ## Testes de integração
-  Para rodar os testes da aplicação:
+  Para rodar os testes da aplicação, com o servidor rodando:
   
 ```bash
   # Em um terminal na raiz do projeto, execute o comando
