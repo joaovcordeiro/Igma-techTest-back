@@ -41,8 +41,11 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
   # Instale as dependências
   $ npm install
   
-  # Excute o seguinte comando para subir o banco de dados
+  # Execute o seguinte comando para subir o banco de dados
   $ docker-compose up -d --build
+  
+  # Execute o seguinte comando para realizar as migrations do prisma.
+  $ npm prisma:migrate
   
   # Após isso execute o comando para subir o servidor em modo de desenvolvimento na porta 5000
   $ npm run dev
