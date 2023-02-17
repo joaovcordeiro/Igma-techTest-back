@@ -45,7 +45,7 @@ O projeto utiliza [PostgreSQL](https://www.postgresql.org).
   $ docker-compose up -d --build
   
   # Execute o seguinte comando para realizar as migrations do prisma.
-  $ npm prisma:migrate
+  $ npm run prisma:migrate
   
   # Após isso execute o comando para subir o servidor em modo de desenvolvimento na porta 5000
   $ npm run dev
